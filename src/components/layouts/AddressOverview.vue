@@ -17,7 +17,7 @@
                         @toggle-unclaimed-cashlink-list="toggleUnclaimedCashlinkList"
                     />
 
-                    <PrestakingButton />
+                    <StakingButton />
                 </div>
                 <button
                     class="reset icon-button"
@@ -275,7 +275,6 @@ import StakingPreview from '../staking/StakingPreview.vue';
 import StakingButton from '../staking/StakingButton.vue';
 import StakingIcon from '../icons/Staking/StakingIcon.vue';
 import CashlinkButton from '../CashlinkButton.vue';
-import PrestakingButton from '../prestaking/PrestakingButton.vue';
 
 import { useAccountStore } from '../../stores/Account';
 import { useAddressStore } from '../../stores/Address';
@@ -301,7 +300,7 @@ import {
 import { POLYGON_BLOCKS_PER_MINUTE } from '../../lib/usdc/OpenGSN';
 import { i18n } from '../../i18n/i18n-setup';
 import { useUsdcTransactionsStore } from '../../stores/UsdcTransactions';
-import HeroIcon from '../icons/Prestaking/HeroIcon.vue';
+import HeroIcon from '../icons/Staking/HeroIcon.vue';
 
 export default defineComponent({
     name: 'address-overview',
@@ -587,7 +586,6 @@ export default defineComponent({
         StakingButton,
         StakingIcon,
         CashlinkButton,
-        PrestakingButton,
         HeroIcon,
     },
 });
