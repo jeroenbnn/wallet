@@ -1,3 +1,4 @@
+import { SwapAsset } from '@nimiq/libswap';
 import { ENV_DEV } from '../lib/Constants';
 
 // Note: you'll usually want to use the reactive variant exported by useConfig instead of the plain Config, especially
@@ -115,8 +116,10 @@ export default {
     },
 
     sinpeMovil: {
-        enabledSell: true,
-        enabledBuy: true,
+        enabled: true,
+        pairs: [[SwapAsset.NIM, SwapAsset.CRC]], // For now we only support selling NIM to CRC
+        sendSmsGetEndpoint: 'https://sinpemovil.sandbox.nimiqoasis.com/sms/send/{phone}',
+        verifySmsPostEndpoint: 'https://sinpemovil.sandbox.nimiqoasis.com/sms/verify',
     },
 
     goCrypto: {
