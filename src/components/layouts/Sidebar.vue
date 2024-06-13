@@ -169,6 +169,7 @@ import { defineComponent, ref, computed, onMounted } from '@vue/composition-api'
 import { GearIcon, Tooltip, InfoCircleIcon } from '@nimiq/vue-components';
 import { RouteName } from '@/router';
 import { assetToCurrency } from '@/lib/swap/utils/Assets';
+import { SINPE_MOVIL_PAIRS } from '@/composables/asset-transfer/useSinpeMovilSwap';
 import AnnouncementBox from '../AnnouncementBox.vue';
 import AccountMenu from '../AccountMenu.vue';
 import PriceChart, { TimeRange } from '../PriceChart.vue';
@@ -290,7 +291,7 @@ export default defineComponent({
             return activeCurrency.value !== CryptoCurrency.NIM;
         });
         const canSellCryptoWithSinpeMovil = computed(() => { // eslint-disable-line arrow-body-style
-            if (config.sinpeMovil.pairs.some(([from]) => assetToCurrency(from) === activeCurrency.value)) return true;
+            if (SINPE_MOVIL_PAIRS.some(([from]) => assetToCurrency(from) === activeCurrency.value)) return true;
             if (!countryCode.value) return false;
             // @ts-expect-error It is fine
             return true || SINPE_MOVIL_COUNTRY_CODES.includes(countryCode.value);
